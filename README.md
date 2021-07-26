@@ -96,38 +96,40 @@ Geolocation alert options.
 
 Geolocation updates options.
 
-| Prop             | Type                                                                    | Description                                                               |
-| ---------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options. enable                            |
-| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server(multipart-formdata format). |
+| Prop             | Type                                                                    | Description                                                         |
+| ---------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options. enable                      |
+| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server. `multipart-formdata` |
 
 
 #### GeolocationBackground
 
-| Prop               | Type                                                                        | Description                                                                                                                                            | Default           |
-| ------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                                              | <code>true</code> |
-| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is `&lt;b&gt;Android&lt;b&gt;` forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   |
+| Prop               | Type                                                                        | Description                                                                                                                          | Default           |
+| ------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                            | <code>true</code> |
+| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   |
 
 
 #### GeolocationNotification
 
-This is android forground notification module. If you need to run background Geolocation on Android, you must define notification.
+This is 'Android' forground notification module. If you need to run background Geolocation on Android, you must define notification.
 
-| Prop              | Type                | Description                                           | Default                                          |
-| ----------------- | ------------------- | ----------------------------------------------------- | ------------------------------------------------ |
-| **`channelID`**   | <code>string</code> | &lt;code&gt;Android&lt;/code&gt; notification channel | <code>"LOCATION_SERVICE_CHANNEL"</code>          |
-| **`channelName`** | <code>string</code> | &lt;code&gt;Android&lt;/code&gt; support              | <code>"Geolocation tracking notification"</code> |
-| **`header`**      | <code>string</code> |                                                       |                                                  |
-| **`message`**     | <code>string</code> |                                                       |                                                  |
-| **`icon`**        | <code>string</code> |                                                       |                                                  |
+| Prop              | Type                | Description                                                                     | Default                                          |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ |
+| **`channelID`**   | <code>string</code> | `Android` notification channel id                                               | <code>"LOCATION_SERVICE_CHANNEL"</code>          |
+| **`channelName`** | <code>string</code> | `Android` notification cannel name                                              | <code>"Geolocation tracking notification"</code> |
+| **`header`**      | <code>string</code> | `Android` notification header                                                   | <code>"Geolocation tracker"</code>               |
+| **`message`**     | <code>string</code> | `Android` notification message                                                  | <code>"Geolocation tracking now."</code>         |
+| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. | <code>"minmap/ic_launcher"</code>                |
 
 
 #### GeolocationConnect
 
-| Prop       | Type                                               |
-| ---------- | -------------------------------------------------- |
-| **`url`**  | <code>string</code>                                |
-| **`body`** | <code>{ [name: string]: string \| number; }</code> |
+After location updates, upload data to server. `multipart-formdata`
+
+| Prop       | Type                                               | Description                                                                           | Default           |
+| ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- |
+| **`url`**  | <code>string</code>                                | Update url                                                                            | <code>null</code> |
+| **`body`** | <code>{ [name: string]: string \| number; }</code> | Update body. You can get latitude and longitude data as `@latitude` and `@longitude`. | <code>null</code> |
 
 </docgen-api>

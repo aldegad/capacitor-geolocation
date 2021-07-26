@@ -38,11 +38,11 @@ export interface GeololocationUpdates {
    * Geolocation Background setting options.
    * enable 
    */
-  background: GeolocationBackground
+  background?: GeolocationBackground
   /**
-   * After location updates, upload data to server(multipart-formdata format).
+   * After location updates, upload data to server. `multipart-formdata`
    */
-  connect: GeolocationConnect
+  connect?: GeolocationConnect
 }
 export interface GeolocationBackground {
   /**
@@ -51,33 +51,60 @@ export interface GeolocationBackground {
    */
   enable: boolean,
   /**
-   * This is `<b>Android<b>` forground notification module. If you need to run background Geolocation on Android, you must define notification.
+   * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
    */
   notification: GeolocationNotification
 }
 /**
- * This is android forground notification module. If you need to run background Geolocation on Android, you must define notification.
+ * This is 'Android' forground notification module. If you need to run background Geolocation on Android, you must define notification.
  */
 export interface GeolocationNotification {
   /**
-   * <code>Android</code> notification channel 
+   * `Android` notification channel id
    * @default "LOCATION_SERVICE_CHANNEL"
    */
-  channelID: string,
+  channelID?: string,
   /**
-   * <code>Android</code> support 
+   * `Android` notification cannel name
    * @default "Geolocation tracking notification"
    */
-  channelName: string,
-  header: string,
-  message: string,
-  icon: string
+  channelName?: string,
+  /**
+   * `Android` notification header
+   * @default "Geolocation tracker"
+   */
+  header?: string,
+  /**
+   * `Android` notification message
+   * @default "Geolocation tracking now."
+   */
+  message?: string,
+  /**
+   * `Android` notification icon. Icon's path should be in `android/app/res` folder.
+   * @default "minmap/ic_launcher"
+   */
+  icon?: string
 }
+/**
+ * After location updates, upload data to server. `multipart-formdata`
+ */
 export interface GeolocationConnect {
+  /**
+   * Update url
+   * @default null
+   */
   url: string,
+  /**
+   * Update body. You can get latitude and longitude data as `@latitude` and `@longitude`.
+   * @default null
+   * @example {token: wefi349gj4kde, lat: @latitude, long: @longitude}
+   */
   body?: {[name:string]:string | number}
 }
+/**
+ * Each time Geolocation updates, It fires. It's only for `forground state`.
+ */
 export type GeolocationUpdatesCallback = (data: {
   longitude: number,
   latitude: number
-}) => {}
+}) => void

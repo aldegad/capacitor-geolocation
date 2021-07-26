@@ -68,7 +68,7 @@ public class LocationService extends Service {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void startForegroundService() {
-        Log.d(TAG, "startForegroundService");
+        Log.d(TAG, "startForegroundService: " + getApplicationContext().getPackageName());
         Intent notificationIntent = new Intent(this, getApplicationContext().getClass());
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
@@ -82,7 +82,8 @@ public class LocationService extends Service {
             new Notification.Builder(this, CHANNEL_ID)
                 .setContentTitle("Geolocation tracker")
                 .setContentText("Geolocation tracking now.")
-                .setSmallIcon(R.mipmap.ic_launcher)
+                //.setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(getApplicationContext().getResources().getIdentifier("minmap/ic_launcher", "image", getApplicationContext().getPackageName()))
                 .setContentIntent(pendingIntent)
                 //.setTicker("Location Ticker") // 이게 머지?? 없어도 되긴되는데, 먼지 몰겠넹...
                 .build();
