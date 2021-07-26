@@ -143,10 +143,10 @@ After location updates, upload data to server. `multipart-formdata`
 
 #### GeolocationUpdatesCallbackEvent
 
-| Prop            | Type                |
-| --------------- | ------------------- |
-| **`longitude`** | <code>number</code> |
-| **`latitude`**  | <code>number</code> |
+| Prop            | Type                | Description             | Since |
+| --------------- | ------------------- | ----------------------- | ----- |
+| **`longitude`** | <code>number</code> | User location longitude | 0.0.1 |
+| **`latitude`**  | <code>number</code> | User location latitude  | 0.0.1 |
 
 
 ### Type Aliases

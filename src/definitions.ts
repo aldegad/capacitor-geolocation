@@ -137,7 +137,15 @@ export interface GeolocationConnect {
   body?: {[name:string]:string | number}
 }
 export interface GeolocationUpdatesCallbackEvent {
+  /**
+   * User location longitude
+   * @since 0.0.1
+   */
   longitude: number,
+  /**
+   * User location latitude
+   * @since 0.0.1
+   */
   latitude: number
 }
 /**
