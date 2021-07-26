@@ -28,9 +28,11 @@ npx cap sync
 requestPermission(options?: GeolocationOptions.RequestPermission | undefined) => any
 ```
 
-| Param         | Type                           |
-| ------------- | ------------------------------ |
-| **`options`** | <code>RequestPermission</code> |
+Request GPS Permission. You can define alert cotext.
+
+| Param         | Type                           | Description                          |
+| ------------- | ------------------------------ | ------------------------------------ |
+| **`options`** | <code>RequestPermission</code> | GeolocationOptions.RequestPermission |
 
 **Returns:** <code>any</code>
 
