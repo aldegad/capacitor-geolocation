@@ -104,10 +104,10 @@ Geolocation updates options.
 
 #### GeolocationBackground
 
-| Prop               | Type                                                                        | Description                                                                                                                                               | Default           |
-| ------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                                                 | <code>true</code> |
-| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is ("&lt;b&gt;Android&lt;/b&gt;") forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   |
+| Prop               | Type                                                                        | Description                                                                                                                                                              | Default           |
+| ------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                                                                | <code>true</code> |
+| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | document.write("&lt;b&gt;Android&lt;/b&gt;"); This is forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   |
 
 
 #### GeolocationNotification
