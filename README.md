@@ -27,7 +27,7 @@ npx cap sync
 ### requestPermission(...)
 
 ```typescript
-requestPermission(options?: GeolocationPermission | undefined) => Promise<{ state: PermissionState; }>
+requestPermission(options?: GeolocationPermission | undefined) => Promise<{ state: GeolocationPermissionState; }>
 ```
 
 Request and check geolocation permissions. You can define alert cotext.
@@ -36,7 +36,7 @@ Request and check geolocation permissions. You can define alert cotext.
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#geolocationpermission">GeolocationPermission</a></code> |
 
-**Returns:** <code>Promise&lt;{ state: any; }&gt;</code>
+**Returns:** <code>Promise&lt;{ state: <a href="#geolocationpermissionstate">GeolocationPermissionState</a>; }&gt;</code>
 
 --------------------
 
@@ -137,9 +137,11 @@ After location updates, upload data to server. `multipart-formdata`
 ### Type Aliases
 
 
-#### PermissionState
+#### GeolocationPermissionState
 
-<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
+Capacitor public Permission State
+
+<code>"denied" | "granted" | "prompt"</code>
 
 
 #### GeolocationUpdatesCallback

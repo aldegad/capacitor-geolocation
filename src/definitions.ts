@@ -2,7 +2,7 @@ export interface GeolocationPlugin {
   /**
    * Request and check geolocation permissions. You can define alert cotext.
    */
-  requestPermission(options?: GeolocationPermission): Promise<{ state: PermissionState }>;
+  requestPermission(options?: GeolocationPermission): Promise<{ state: GeolocationPermissionState }>;
   /**
    * Start location updates.
    */
@@ -113,3 +113,7 @@ export type GeolocationUpdatesCallback = (data: {
   longitude: number,
   latitude: number
 }) => void
+/**
+ * Capacitor public Permission State
+ */
+export type GeolocationPermissionState = "denied" | "granted" | "prompt";
