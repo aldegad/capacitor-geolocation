@@ -39,6 +39,8 @@ Request and check geolocation permissions. You can define alert cotext.
 
 **Returns:** <code>Promise&lt;{ state: <a href="#geolocationpermissionstate">GeolocationPermissionState</a>; }&gt;</code>
 
+**Since:** 0.0.1
+
 --------------------
 
 
@@ -55,6 +57,8 @@ Start location updates.
 | **`options`**  | <code><a href="#geololocationupdates">GeololocationUpdates</a></code>             |
 | **`callback`** | <code><a href="#geolocationupdatescallback">GeolocationUpdatesCallback</a></code> |
 
+**Since:** 0.0.1
+
 --------------------
 
 
@@ -66,6 +70,8 @@ stopLocationUpdtes() => Promise<void>
 
 Stop location updates.
 
+**Since:** 0.0.1
+
 --------------------
 
 
@@ -76,32 +82,32 @@ Stop location updates.
 
 Geolocation permission options.
 
-| Prop              | Type                                                          | Description                                                                                                                          |
-| ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| **`promptAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    |
-| **`deniedAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. |
+| Prop              | Type                                                          | Description                                                                                                                          | Since |
+| ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`promptAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    | 0.0.1 |
+| **`deniedAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. | 0.0.1 |
 
 
 #### GeolocationAlert
 
 Geolocation alert options.
 
-| Prop             | Type                |
-| ---------------- | ------------------- |
-| **`header`**     | <code>string</code> |
-| **`message`**    | <code>string</code> |
-| **`okText`**     | <code>string</code> |
-| **`cancelText`** | <code>string</code> |
+| Prop             | Type                | Description       | Since |
+| ---------------- | ------------------- | ----------------- | ----- |
+| **`header`**     | <code>string</code> | Alert header      | 0.0.1 |
+| **`message`**    | <code>string</code> | Alert message     | 0.0.1 |
+| **`okText`**     | <code>string</code> | Alert ok text     | 0.0.1 |
+| **`cancelText`** | <code>string</code> | Alert cancel text | 0.0.1 |
 
 
 #### GeololocationUpdates
 
 Geolocation updates options.
 
-| Prop             | Type                                                                    | Description                                                         |
-| ---------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options. enable                      |
-| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server. `multipart-formdata` |
+| Prop             | Type                                                                    | Description                                                                  |
+| ---------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options. enable                               |
+| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server. It uses `multipart-formdata`. |
 
 
 #### GeolocationBackground

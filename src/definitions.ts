@@ -1,14 +1,17 @@
 export interface GeolocationPlugin {
   /**
    * Request and check geolocation permissions. You can define alert cotext.
+   * @since 0.0.1
    */
   requestPermission(options?: GeolocationPermission): Promise<{ state: GeolocationPermissionState }>;
   /**
    * Start location updates.
+   * @since 0.0.1
    */
   startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback):Promise<void>;
   /**
    * Stop location updates.
+   * @since 0.0.1
    */
   stopLocationUpdtes():Promise<void>;
 }
@@ -17,23 +20,40 @@ export interface GeolocationPlugin {
  */
 export interface GeolocationPermission {
   /**
-   * 
    * If user ignore geolocation permission, notice why this application needs geolocation permissions.
+   * @since 0.0.1
    */
   promptAlert?: GeolocationAlert,
   /**
-   * 
    * If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions.
+   * @since 0.0.1
    */
   deniedAlert?: GeolocationAlert
 }
 /**
  * Geolocation alert options.
+ * @since 0.0.1
  */
 export interface GeolocationAlert {
+  /**
+   * Alert header
+   * @since 0.0.1
+   */
   header?: string,
+  /**
+   * Alert message
+   * @since 0.0.1
+   */
   message?: string,
+  /**
+   * Alert ok text
+   * @since 0.0.1
+   */
   okText?: string,
+  /**
+   * Alert cancel text
+   * @since 0.0.1
+   */
   cancelText?: string
 }
 /**
@@ -46,7 +66,7 @@ export interface GeololocationUpdates {
    */
   background?: GeolocationBackground
   /**
-   * After location updates, upload data to server. `multipart-formdata`
+   * After location updates, upload data to server. It uses `multipart-formdata`.
    */
   connect?: GeolocationConnect
 }
@@ -107,9 +127,16 @@ export interface GeolocationConnect {
   body?: {[name:string]:string | number}
 }
 /**
+ * Each time Geolocation updates, It fires. It's only for `forground state`.
+ */
+export type GeolocationUpdatesCallback = (data: {
+  longitude: number,
+  latitude: number
+}) => void
+/**
  * Gecolocation permission State
  */
-export enum GeolocationPermissionState {
+ export enum GeolocationPermissionState {
   /**
    * Geolocation permissions granted
    */
@@ -123,10 +150,3 @@ export enum GeolocationPermissionState {
    */
   prompt = "prompt"
 }
-/**
- * Each time Geolocation updates, It fires. It's only for `forground state`.
- */
-export type GeolocationUpdatesCallback = (data: {
-  longitude: number,
-  latitude: number
-}) => void
