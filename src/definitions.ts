@@ -3,9 +3,21 @@ export interface GeolocationPlugin {
    * Request and check geolocation permissions. You can define alert cotext.
    * @param options GeolocationOptions.RequestPermission
    */
-  requestPermission(options?: GeolocationOptions.RequestPermission): Promise<{ state: PermissionState }>;
+  requestPermission(options?: RequestPermission): Promise<{ state: PermissionState }>;
   startLocationUpdates(options?: GeolocationOptions.LocationUpdates, callback?: GeolocationOptions.LocationUpdatesCallback): Promise<void>;
   stopLocationUpdtes(): Promise<void>;
+}
+export interface RequestPermission {
+  /**
+   * 
+   * If user ignore geolocation permission, notice why this application needs geolocation permissions.
+   */
+  promptAlert?: Alert,
+  /**
+   * 
+   * If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions.
+   */
+  deniedAlert?: Alert
 }
 /**
  * Geolocation alert interface.

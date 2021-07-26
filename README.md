@@ -16,6 +16,7 @@ npx cap sync
 * [`requestPermission(...)`](#requestpermission)
 * [`startLocationUpdates(...)`](#startlocationupdates)
 * [`stopLocationUpdtes()`](#stoplocationupdtes)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -25,14 +26,14 @@ npx cap sync
 ### requestPermission(...)
 
 ```typescript
-requestPermission(options?: GeolocationOptions.RequestPermission | undefined) => any
+requestPermission(options?: RequestPermission | undefined) => any
 ```
 
 Request and check geolocation permissions. You can define alert cotext.
 
-| Param         | Type                           | Description                          |
-| ------------- | ------------------------------ | ------------------------------------ |
-| **`options`** | <code>RequestPermission</code> | GeolocationOptions.RequestPermission |
+| Param         | Type                                                            | Description                                                           |
+| ------------- | --------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **`options`** | <code><a href="#requestpermission">RequestPermission</a></code> | GeolocationOptions.<a href="#requestpermission">RequestPermission</a> |
 
 **Returns:** <code>any</code>
 
@@ -64,5 +65,28 @@ stopLocationUpdtes() => any
 **Returns:** <code>any</code>
 
 --------------------
+
+
+### Interfaces
+
+
+#### RequestPermission
+
+| Prop              | Type                                    | Description                                                                                                                          |
+| ----------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **`promptAlert`** | <code><a href="#alert">Alert</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    |
+| **`deniedAlert`** | <code><a href="#alert">Alert</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. |
+
+
+#### Alert
+
+Geolocation alert interface.
+
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`header`**     | <code>string</code> |
+| **`message`**    | <code>string</code> |
+| **`okText`**     | <code>string</code> |
+| **`cancelText`** | <code>string</code> |
 
 </docgen-api>
