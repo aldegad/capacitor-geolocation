@@ -145,13 +145,13 @@ Geolocation updates options.
 
 This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
 
-| Prop              | Type                | Description                                                                     | Default                                          | Since |
-| ----------------- | ------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
-| **`channelID`**   | <code>string</code> | `Android` notification channel id                                               | <code>"LOCATION_SERVICE_CHANNEL"</code>          | 0.0.1 |
-| **`channelName`** | <code>string</code> | `Android` notification cannel name                                              | <code>"Geolocation tracking notification"</code> | 0.0.1 |
-| **`header`**      | <code>string</code> | `Android` notification header                                                   | <code>"Geolocation tracker"</code>               | 0.0.1 |
-| **`message`**     | <code>string</code> | `Android` notification message                                                  | <code>"Geolocation tracking now."</code>         | 0.0.1 |
-| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. | <code>"minmap/ic_launcher"</code>                | 0.0.1 |
+| Prop              | Type                | Description                                                                                                                       | Default                                          | Since |
+| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
+| **`channelID`**   | <code>string</code> | `Android` notification channel id                                                                                                 | <code>"LOCATION_SERVICE_CHANNEL"</code>          | 0.0.1 |
+| **`channelName`** | <code>string</code> | `Android` notification cannel name                                                                                                | <code>"Geolocation tracking notification"</code> | 0.0.1 |
+| **`header`**      | <code>string</code> | `Android` notification header                                                                                                     | <code>"Geolocation tracker"</code>               | 0.0.1 |
+| **`message`**     | <code>string</code> | `Android` notification message                                                                                                    | <code>"Geolocation tracking now."</code>         | 0.0.1 |
+| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image format like `.png`, `.jpeg` etc. | <code>"minmap/ic_launcher"</code>                | 0.0.1 |
 
 
 #### GeolocationConnect

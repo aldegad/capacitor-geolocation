@@ -21,7 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 
-import com.aldegad.capacitor.geolocation.R;
 import com.aldegad.capacitor.geolocation.connect.API;
 import com.getcapacitor.JSObject;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -44,6 +43,7 @@ public class LocationService extends Service {
     public static FusedLocationProviderClient fusedLocationClient;
     public static LocationCallback locationCallback;
 
+    public static LocationUpdatesOptions locationUpdatesOptions;
     public static LocationUpdatesCallback locationUpdateCallback;
 
     @Nullable
@@ -68,22 +68,27 @@ public class LocationService extends Service {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void startForegroundService() {
-        Log.d(TAG, "startForegroundService: " + getApplicationContext().getPackageName());
         Intent notificationIntent = new Intent(this, getApplicationContext().getClass());
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
-        String CHANNEL_ID = "LOCATION_SERVICE_CHANNEL";
+        String CHANNEL_ID = locationUpdatesOptions.background.notification.channelID;
 
         NotificationManager notificationManager = this.getSystemService(NotificationManager.class);
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Geolocation tracking notification", NotificationManager.IMPORTANCE_LOW);
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, locationUpdatesOptions.background.notification.channelName, NotificationManager.IMPORTANCE_LOW);
         notificationManager.createNotificationChannel(channel);
+
+        Log.d(TAG, "startForegroundService: " + getApplicationContext().getPackageName());
+        Log.d(TAG, "startForegroundService: " + locationUpdatesOptions.background.notification.channelID);
+        Log.d(TAG, "startForegroundService: " + locationUpdatesOptions.background.notification.channelName);
+        Log.d(TAG, "startForegroundService: " + locationUpdatesOptions.background.notification.header);
+        Log.d(TAG, "startForegroundService: " + locationUpdatesOptions.background.notification.message);
+        Log.d(TAG, "startForegroundService: " + locationUpdatesOptions.background.notification.icon);
 
         Notification notification =
             new Notification.Builder(this, CHANNEL_ID)
-                .setContentTitle("Geolocation tracker")
-                .setContentText("Geolocation tracking now.")
-                //.setSmallIcon(R.mipmap.ic_launcher)
-                .setSmallIcon(getApplicationContext().getResources().getIdentifier("minmap/ic_launcher", "image", getApplicationContext().getPackageName()))
+                .setContentTitle(locationUpdatesOptions.background.notification.header)
+                .setContentText(locationUpdatesOptions.background.notification.message)
+                .setSmallIcon(getApplicationContext().getResources().getIdentifier(locationUpdatesOptions.background.notification.icon, "image", getApplicationContext().getPackageName()))
                 .setContentIntent(pendingIntent)
                 //.setTicker("Location Ticker") // 이게 머지?? 없어도 되긴되는데, 먼지 몰겠넹...
                 .build();

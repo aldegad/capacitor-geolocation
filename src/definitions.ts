@@ -115,7 +115,7 @@ export interface GeolocationNotification {
    */
   message?: string,
   /**
-   * `Android` notification icon. Icon's path should be in `android/app/res` folder.
+   * `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image format like `.png`, `.jpeg` etc.
    * @since 0.0.1
    * @default "minmap/ic_launcher"
    */

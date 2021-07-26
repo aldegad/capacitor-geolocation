@@ -8,7 +8,10 @@ import com.aldegad.capacitor.geolocation.alert.AlertOptions;
 import com.aldegad.capacitor.geolocation.alert.AlertPlugin;
 import com.aldegad.capacitor.geolocation.permission.LocationPermission;
 import com.aldegad.capacitor.geolocation.permission.LocationPermissionOptions;
+import com.aldegad.capacitor.geolocation.updates.LocationBackgroundOptions;
+import com.aldegad.capacitor.geolocation.updates.LocationConnectOptions;
 import com.aldegad.capacitor.geolocation.updates.LocationUpdates;
+import com.aldegad.capacitor.geolocation.updates.LocationUpdatesOptions;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
@@ -32,8 +35,11 @@ public class GeolocationPlugin extends Plugin {
     }
     @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
     public void startLocationUpdates(PluginCall call) {
+        LocationUpdatesOptions options = new LocationUpdatesOptions();
+        options.background = new LocationBackgroundOptions(call.getObject("background"));
+        options.connect = new LocationConnectOptions(call.getObject("connect"));
         call.setKeepAlive(true);
-        LocationUpdates.startUpdates(res -> {
+        LocationUpdates.startUpdates(options, res -> {
             call.resolve(res);
         });
     }

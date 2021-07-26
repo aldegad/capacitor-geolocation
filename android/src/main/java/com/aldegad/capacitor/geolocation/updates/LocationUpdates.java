@@ -13,7 +13,8 @@ public class LocationUpdates {
     public static void add(AppCompatActivity _activity) {
         activity = _activity;
     }
-    public static void startUpdates(LocationUpdatesCallback locationUpdatesCallback) {
+    public static void startUpdates(LocationUpdatesOptions locationUpdatesOptions, LocationUpdatesCallback locationUpdatesCallback) {
+        LocationService.locationUpdatesOptions = locationUpdatesOptions;
         LocationService.locationUpdateCallback = locationUpdatesCallback;
 
         Intent intent = new Intent(activity, LocationService.class);
