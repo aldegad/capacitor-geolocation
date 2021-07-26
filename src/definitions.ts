@@ -3,63 +3,56 @@ export interface GeolocationPlugin {
    * Request and check geolocation permissions. You can define alert cotext.
    * @param options GeolocationOptions.RequestPermission
    */
-  requestPermission(options?: RequestPermission): Promise<{ state: PermissionState }>;
-  startLocationUpdates(options?: GeolocationOptions.LocationUpdates, callback?: GeolocationOptions.LocationUpdatesCallback): Promise<void>;
+  requestPermission(options?: GeolocationPermission): Promise<{ state: PermissionState }>;
+  startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback): Promise<void>;
   stopLocationUpdtes(): Promise<void>;
 }
-export interface RequestPermission {
+/**
+ * Geolocation permission options.
+ * @interface
+ */
+export interface GeolocationPermission {
   /**
    * 
    * If user ignore geolocation permission, notice why this application needs geolocation permissions.
    */
-  promptAlert?: Alert,
+  promptAlert?: GeolocationAlert,
   /**
    * 
    * If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions.
    */
-  deniedAlert?: Alert
+  deniedAlert?: GeolocationAlert
 }
 /**
- * Geolocation alert interface.
+ * Geolocation alert options.
  * @interface
  */
-export interface Alert {
+export interface GeolocationAlert {
   header?: string,
   message?: string,
   okText?: string,
   cancelText?: string
 }
 /**
- * My namespace.
- * @namespace
+ * Geolocation updates options.
+ * @interface
  */
-export namespace GeolocationOptions {
-  export interface Alert {
-    header?: string,
-    message?: string,
-    okText?: string,
-    cancelText?: string
-  }
-  export interface RequestPermission {
+export interface GeololocationUpdates {
+  /**
+   * After location updates, upload data to server.(multipart-formdata format)
+   */
+  connect: {
     /**
-     * 
-     * If user ignore geolocation permission, notice why this application needs geolocation permissions.
+     * Update Url.
      */
-    promptAlert?: Alert,
+    url: string,
     /**
-     * 
-     * If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions.
+     * Update JSON
      */
-    deniedAlert?: Alert
+    body: JSON
   }
-  export interface LocationUpdates {
-    connect: {
-      url: string,
-      body: JSON
-    }
-  }
-  export type LocationUpdatesCallback = (data: {
-    longitude: number,
-    latitude: number
-  }) => {}
 }
+export type GeolocationUpdatesCallback = (data: {
+  longitude: number,
+  latitude: number
+}) => {}

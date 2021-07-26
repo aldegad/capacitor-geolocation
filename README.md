@@ -26,14 +26,14 @@ npx cap sync
 ### requestPermission(...)
 
 ```typescript
-requestPermission(options?: RequestPermission | undefined) => any
+requestPermission(options?: GeolocationPermission | undefined) => any
 ```
 
 Request and check geolocation permissions. You can define alert cotext.
 
-| Param         | Type                                                            | Description                                                           |
-| ------------- | --------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **`options`** | <code><a href="#requestpermission">RequestPermission</a></code> | GeolocationOptions.<a href="#requestpermission">RequestPermission</a> |
+| Param         | Type                                                                    | Description                          |
+| ------------- | ----------------------------------------------------------------------- | ------------------------------------ |
+| **`options`** | <code><a href="#geolocationpermission">GeolocationPermission</a></code> | GeolocationOptions.RequestPermission |
 
 **Returns:** <code>any</code>
 
@@ -43,13 +43,13 @@ Request and check geolocation permissions. You can define alert cotext.
 ### startLocationUpdates(...)
 
 ```typescript
-startLocationUpdates(options?: GeolocationOptions.LocationUpdates | undefined, callback?: GeolocationOptions.LocationUpdatesCallback | undefined) => any
+startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: GeolocationUpdatesCallback | undefined) => any
 ```
 
-| Param          | Type                                 |
-| -------------- | ------------------------------------ |
-| **`options`**  | <code>LocationUpdates</code>         |
-| **`callback`** | <code>LocationUpdatesCallback</code> |
+| Param          | Type                                                                  |
+| -------------- | --------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#geololocationupdates">GeololocationUpdates</a></code> |
+| **`callback`** | <code>GeolocationUpdatesCallback</code>                               |
 
 **Returns:** <code>any</code>
 
@@ -70,17 +70,19 @@ stopLocationUpdtes() => any
 ### Interfaces
 
 
-#### RequestPermission
+#### GeolocationPermission
 
-| Prop              | Type                                    | Description                                                                                                                          |
-| ----------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| **`promptAlert`** | <code><a href="#alert">Alert</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    |
-| **`deniedAlert`** | <code><a href="#alert">Alert</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. |
+Geolocation permission options.
+
+| Prop              | Type                                                          | Description                                                                                                                          |
+| ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **`promptAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    |
+| **`deniedAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. |
 
 
-#### Alert
+#### GeolocationAlert
 
-Geolocation alert interface.
+Geolocation alert options.
 
 | Prop             | Type                |
 | ---------------- | ------------------- |
@@ -88,5 +90,14 @@ Geolocation alert interface.
 | **`message`**    | <code>string</code> |
 | **`okText`**     | <code>string</code> |
 | **`cancelText`** | <code>string</code> |
+
+
+#### GeololocationUpdates
+
+Geolocation updates options.
+
+| Prop          | Type                                     | Description                                                               |
+| ------------- | ---------------------------------------- | ------------------------------------------------------------------------- |
+| **`connect`** | <code>{ url: string; body: any; }</code> | After location updates, upload data to server.(multipart-formdata format) |
 
 </docgen-api>
