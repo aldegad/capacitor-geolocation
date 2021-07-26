@@ -62,11 +62,12 @@ export interface GeolocationAlert {
 export interface GeololocationUpdates {
   /**
    * Geolocation Background setting options.
-   * enable 
+   * @since 0.0.1
    */
   background?: GeolocationBackground
   /**
    * After location updates, upload data to server. It uses `multipart-formdata`.
+   * @since 0.0.1
    */
   connect?: GeolocationConnect
 }
@@ -78,25 +79,31 @@ export interface GeolocationBackground {
   enable: boolean,
   /**
    * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
+   * @since 0.0.1
    */
   notification: GeolocationNotification
 }
 /**
- * This is 'Android' forground notification module. If you need to run background Geolocation on Android, you must define notification.
+ * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
+ * @interface GeolocationNotification `Android`
+ * @since 0.0.1
  */
 export interface GeolocationNotification {
   /**
    * `Android` notification channel id
+   * @since 0.0.1
    * @default "LOCATION_SERVICE_CHANNEL"
    */
   channelID?: string,
   /**
    * `Android` notification cannel name
+   * @since 0.0.1
    * @default "Geolocation tracking notification"
    */
   channelName?: string,
   /**
    * `Android` notification header
+   * @since 0.0.1
    * @default "Geolocation tracker"
    */
   header?: string,
