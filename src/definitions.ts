@@ -36,16 +36,13 @@ export interface GeolocationAlert {
 export interface GeololocationUpdates {
   /**
    * Geolocation Background setting options.
-   * enable @default true
+   * enable 
    */
   background: GeolocationBackground
   /**
    * After location updates, upload data to server(multipart-formdata format).
    */
-  connect: {
-    url: string,
-    body: JSON
-  }
+  connect: GeolocationConnect
 }
 export interface GeolocationBackground {
   /**
@@ -54,7 +51,7 @@ export interface GeolocationBackground {
    */
   enable: boolean,
   /**
-   * This is android forground notification module. If you need to run background Geolocation on Android, you must define notification.
+   * This is {@Android} forground notification module. If you need to run background Geolocation on Android, you must define notification.
    */
   notification: GeolocationNotification
 }
@@ -69,7 +66,7 @@ export interface GeolocationNotification {
   channelID: string,
   /**
    * <code>Android</code> support 
-   * @default "LOCATION_SERVICE_CHANNEL"
+   * @default "Geolocation tracking notification"
    */
   channelName: string,
   header: string,
@@ -77,7 +74,8 @@ export interface GeolocationNotification {
   icon: string
 }
 export interface GeolocationConnect {
-
+  url: string,
+  body?: {[name:string]:string | number}
 }
 export type GeolocationUpdatesCallback = (data: {
   longitude: number,

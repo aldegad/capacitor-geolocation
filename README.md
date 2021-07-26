@@ -98,28 +98,36 @@ Geolocation updates options.
 
 | Prop             | Type                                                                    | Description                                                               |
 | ---------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options. enable @default true              |
-| **`connect`**    | <code>{ url: string; body: any; }</code>                                | After location updates, upload data to server(multipart-formdata format). |
+| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options. enable                            |
+| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server(multipart-formdata format). |
 
 
 #### GeolocationBackground
 
-| Prop               | Type                                                                        | Description                                                                                                                        | Default           |
-| ------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                          | <code>true</code> |
-| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is android forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   |
+| Prop               | Type                                                                        | Description                                                                                                                           | Default           |
+| ------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                             | <code>true</code> |
+| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is {@Android} forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   |
 
 
 #### GeolocationNotification
 
 This is android forground notification module. If you need to run background Geolocation on Android, you must define notification.
 
-| Prop              | Type                | Description                                           | Default                                 |
-| ----------------- | ------------------- | ----------------------------------------------------- | --------------------------------------- |
-| **`channelID`**   | <code>string</code> | &lt;code&gt;Android&lt;/code&gt; notification channel | <code>"LOCATION_SERVICE_CHANNEL"</code> |
-| **`channelName`** | <code>string</code> | &lt;code&gt;Android&lt;/code&gt; support              | <code>"LOCATION_SERVICE_CHANNEL"</code> |
-| **`header`**      | <code>string</code> |                                                       |                                         |
-| **`message`**     | <code>string</code> |                                                       |                                         |
-| **`icon`**        | <code>string</code> |                                                       |                                         |
+| Prop              | Type                | Description                                           | Default                                          |
+| ----------------- | ------------------- | ----------------------------------------------------- | ------------------------------------------------ |
+| **`channelID`**   | <code>string</code> | &lt;code&gt;Android&lt;/code&gt; notification channel | <code>"LOCATION_SERVICE_CHANNEL"</code>          |
+| **`channelName`** | <code>string</code> | &lt;code&gt;Android&lt;/code&gt; support              | <code>"Geolocation tracking notification"</code> |
+| **`header`**      | <code>string</code> |                                                       |                                                  |
+| **`message`**     | <code>string</code> |                                                       |                                                  |
+| **`icon`**        | <code>string</code> |                                                       |                                                  |
+
+
+#### GeolocationConnect
+
+| Prop       | Type                                               |
+| ---------- | -------------------------------------------------- |
+| **`url`**  | <code>string</code>                                |
+| **`body`** | <code>{ [name: string]: string \| number; }</code> |
 
 </docgen-api>
