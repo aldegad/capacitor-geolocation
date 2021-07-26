@@ -57,7 +57,7 @@ export interface GeolocationNotification {
    */
   enable: boolean,
   /**
-   * {Android} support 
+   * <code>Android</code> support 
    * @default true
    */
   channelID: string,

@@ -109,7 +109,7 @@ This is android forground notification module. If you need to run background Geo
 | Prop              | Type                 | Description                               | Default           |
 | ----------------- | -------------------- | ----------------------------------------- | ----------------- |
 | **`enable`**      | <code>boolean</code> | Toggle use background Geolocation or not. | <code>true</code> |
-| **`channelID`**   | <code>string</code>  | {Android} support                         | <code>true</code> |
+| **`channelID`**   | <code>string</code>  | &lt;code&gt;Android&lt;/code&gt; support  | <code>true</code> |
 | **`channelName`** | <code>string</code>  |                                           |                   |
 | **`header`**      | <code>string</code>  |                                           |                   |
 | **`message`**     | <code>string</code>  |                                           |                   |
