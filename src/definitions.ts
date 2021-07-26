@@ -1,6 +1,7 @@
 export interface GeolocationPlugin {
   /**
    * Request and check geolocation permissions. You can define alert cotext.
+   * @return { state: PermissionState }
    */
   requestPermission(options?: GeolocationPermission): Promise<{ state: PermissionState }>;
   startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback): Promise<void>;
@@ -97,7 +98,6 @@ export interface GeolocationConnect {
   /**
    * Update body. You can get latitude and longitude data as `@latitude` and `@longitude`.
    * @default null
-   * @example {token: wefi349gj4kde, lat: @latitude, long: @longitude}
    */
   body?: {[name:string]:string | number}
 }
