@@ -62,13 +62,13 @@ export interface GeolocationAlert {
 export interface GeololocationUpdates {
   /**
    * Geolocation Background setting options.
-   * @default null Use background is default.
+   * @default Use background is default.
    * @since 0.0.1
    */
   background?: GeolocationBackground
   /**
    * After location updates, upload data to server. It uses `multipart-formdata`.
-   * @default null Nothing to do is default.
+   * @default Nothing to do is default.
    * @since 0.0.1
    */
   connect?: GeolocationConnect
