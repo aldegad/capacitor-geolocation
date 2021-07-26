@@ -68,7 +68,7 @@ export interface GeololocationUpdates {
   background?: GeolocationBackground
   /**
    * After location updates, upload data to server. It uses `multipart-formdata`.
-   * @default null Notging to do is default.
+   * @default null Nothing to do is default.
    * @since 0.0.1
    */
   connect?: GeolocationConnect
