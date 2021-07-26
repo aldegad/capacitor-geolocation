@@ -18,6 +18,7 @@ npx cap sync
 * [`stopLocationUpdtes()`](#stoplocationupdtes)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)
+* [Enums](#enums)
 
 </docgen-index>
 
@@ -137,17 +138,22 @@ After location updates, upload data to server. `multipart-formdata`
 ### Type Aliases
 
 
-#### GeolocationPermissionState
-
-Capacitor public Permission State
-
-<code>"denied" | "granted" | "prompt"</code>
-
-
 #### GeolocationUpdatesCallback
 
 Each time Geolocation updates, It fires. It's only for `forground state`.
 
 <code>(data: { longitude: number; latitude: number; }): void</code>
+
+
+### Enums
+
+
+#### GeolocationPermissionState
+
+| Members       | Value                  | Description                       |
+| ------------- | ---------------------- | --------------------------------- |
+| **`granted`** | <code>"granted"</code> | Geolocation permissions granted   |
+| **`denied`**  | <code>"denied"</code>  | Geolocation permissions denied    |
+| **`prompt`**  | <code>"prompt"</code>  | User has not yet set permissions. |
 
 </docgen-api>

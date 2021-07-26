@@ -1,10 +1,10 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { GeolocationPlugin } from './definitions';
+import { GeolocationPermissionState, GeolocationPlugin } from './definitions';
 
 export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
   async requestPermission() {
-    const state:PermissionState = "denied";
+    const state = GeolocationPermissionState.denied;
     return { state };
   }
   async startLocationUpdates() {}

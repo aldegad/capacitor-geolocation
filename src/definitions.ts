@@ -107,13 +107,26 @@ export interface GeolocationConnect {
   body?: {[name:string]:string | number}
 }
 /**
+ * Gecolocation permission State
+ */
+export enum GeolocationPermissionState {
+  /**
+   * Geolocation permissions granted
+   */
+  granted = "granted",
+  /**
+   * Geolocation permissions denied
+   */
+  denied = "denied",
+  /**
+   * User has not yet set permissions.
+   */
+  prompt = "prompt"
+}
+/**
  * Each time Geolocation updates, It fires. It's only for `forground state`.
  */
 export type GeolocationUpdatesCallback = (data: {
   longitude: number,
   latitude: number
 }) => void
-/**
- * Capacitor public Permission State
- */
-export type GeolocationPermissionState = "denied" | "granted" | "prompt";
