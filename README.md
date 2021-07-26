@@ -171,3 +171,26 @@ Each time Geolocation updates, It fires. It's only for `forground state`.
 | **`prompt`**  | <code>"prompt"</code>  | User has not yet set permissions. |
 
 </docgen-api>
+
+### Examples
+
+Quick Example:
+
+```ts
+/// <reference types="@capacitor/haptics" />
+
+import { Geolocation, GeolocationAlert, GeolocationConnect } from '@aldegad/capacitor-geolocation';
+
+async startLocationUpdates() {
+    const { state } = await Geolocation.requestPermission();
+
+    if(state !== 'granted') return;
+
+    Geolocation.startLocationUpdates(null, ({latitude, longitude}) => {
+        console.log("location updates", `${latitude}/${longitude}`);
+    });
+}
+stopLocationUpdates() {
+    Geolocation.startLocationUpdates();
+}
+```
