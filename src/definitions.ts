@@ -1,7 +1,7 @@
 export interface GeolocationPlugin {
   /**
    * Request and check geolocation permissions. You can define alert cotext.
-   * @return not any
+   * @return state
    */
   requestPermission(options?: GeolocationPermission): Promise<{ state: PermissionState }>;
   startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback): Promise<void>;
