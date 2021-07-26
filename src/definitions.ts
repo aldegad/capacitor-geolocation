@@ -40,15 +40,10 @@ export interface GeolocationAlert {
 export interface GeololocationUpdates {
   /**
    * After location updates, upload data to server.(multipart-formdata format)
+   * @param {string} url - Location update url.
    */
   connect: {
-    /**
-     * Update Url.
-     */
     url: string,
-    /**
-     * Update JSON
-     */
     body: JSON
   }
 }
