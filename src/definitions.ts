@@ -1,11 +1,26 @@
+/**
+ * ## Docs from JSDoc comments!
+ *
+ * This content is from the JSDOC comments on top of
+ * the `HapticsPlugin` interface. All the API data below
+ * is generated from comments from its methods, interfaces
+ * and enums.
+ *
+ * Take a look at the test [HapticsPlugin interface source file](https://github.com/ionic-team/capacitor-docgen/blob/master/src/test/fixtures/definitions.ts).
+ */
 export interface GeolocationPlugin {
   /**
    * Request and check geolocation permissions. You can define alert cotext.
-   * @returns {number}
    */
   requestPermission(options?: GeolocationPermission): Promise<{ state: PermissionState }>;
-  startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback): Promise<void>;
-  stopLocationUpdtes(): Promise<void>;
+  /**
+   * Start update location 
+   */
+  startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback):Promise<void>;
+  /**
+   * Request and check geolocation permissions. You can define alert cotext.
+   */
+  stopLocationUpdtes():Promise<void>;
 }
 /**
  * Geolocation permission options.

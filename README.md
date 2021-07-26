@@ -23,6 +23,15 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
+## Docs from JSDoc comments!
+
+This content is from the JSDOC comments on top of
+the `HapticsPlugin` interface. All the API data below
+is generated from comments from its methods, interfaces
+and enums.
+
+Take a look at the test [HapticsPlugin interface source file](https://github.com/ionic-team/capacitor-docgen/blob/master/src/test/fixtures/definitions.ts).
+
 ### requestPermission(...)
 
 ```typescript
@@ -46,6 +55,8 @@ Request and check geolocation permissions. You can define alert cotext.
 startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: GeolocationUpdatesCallback | undefined) => any
 ```
 
+Start update location
+
 | Param          | Type                                                                  |
 | -------------- | --------------------------------------------------------------------- |
 | **`options`**  | <code><a href="#geololocationupdates">GeololocationUpdates</a></code> |
@@ -61,6 +72,8 @@ startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: Geol
 ```typescript
 stopLocationUpdtes() => any
 ```
+
+Request and check geolocation permissions. You can define alert cotext.
 
 **Returns:** <code>any</code>
 
