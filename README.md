@@ -28,7 +28,7 @@ npx cap sync
 requestPermission(options?: GeolocationOptions.RequestPermission | undefined) => any
 ```
 
-Request GPS Permission. You can define alert cotext.
+Request and check geolocation permissions. You can define alert cotext.
 
 | Param         | Type                           | Description                          |
 | ------------- | ------------------------------ | ------------------------------------ |
