@@ -31,9 +31,9 @@ requestPermission(options?: GeolocationPermission | undefined) => any
 
 Request and check geolocation permissions. You can define alert cotext.
 
-| Param         | Type                                                                    | Description                          |
-| ------------- | ----------------------------------------------------------------------- | ------------------------------------ |
-| **`options`** | <code><a href="#geolocationpermission">GeolocationPermission</a></code> | GeolocationOptions.RequestPermission |
+| Param         | Type                                                                    |
+| ------------- | ----------------------------------------------------------------------- |
+| **`options`** | <code><a href="#geolocationpermission">GeolocationPermission</a></code> |
 
 **Returns:** <code>any</code>
 
