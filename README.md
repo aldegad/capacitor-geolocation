@@ -47,7 +47,7 @@ Request and check geolocation permissions. You can define alert cotext.
 startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: GeolocationUpdatesCallback | undefined) => Promise<void>
 ```
 
-Start update location
+Start location updates.
 
 | Param          | Type                                                                              |
 | -------------- | --------------------------------------------------------------------------------- |
@@ -63,7 +63,7 @@ Start update location
 stopLocationUpdtes() => Promise<void>
 ```
 
-Request and check geolocation permissions. You can define alert cotext.
+Stop location updates.
 
 --------------------
 

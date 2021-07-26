@@ -4,11 +4,11 @@ export interface GeolocationPlugin {
    */
   requestPermission(options?: GeolocationPermission): Promise<{ state: PermissionState }>;
   /**
-   * Start update location
+   * Start location updates.
    */
   startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback):Promise<void>;
   /**
-   * Request and check geolocation permissions. You can define alert cotext.
+   * Stop location updates.
    */
   stopLocationUpdtes():Promise<void>;
 }
