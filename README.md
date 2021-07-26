@@ -17,25 +17,17 @@ npx cap sync
 * [`startLocationUpdates(...)`](#startlocationupdates)
 * [`stopLocationUpdtes()`](#stoplocationupdtes)
 * [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-## Docs from JSDoc comments!
-
-This content is from the JSDOC comments on top of
-the `HapticsPlugin` interface. All the API data below
-is generated from comments from its methods, interfaces
-and enums.
-
-Take a look at the test [HapticsPlugin interface source file](https://github.com/ionic-team/capacitor-docgen/blob/master/src/test/fixtures/definitions.ts).
-
 ### requestPermission(...)
 
 ```typescript
-requestPermission(options?: GeolocationPermission | undefined) => any
+requestPermission(options?: GeolocationPermission | undefined) => Promise<{ state: PermissionState; }>
 ```
 
 Request and check geolocation permissions. You can define alert cotext.
@@ -44,7 +36,7 @@ Request and check geolocation permissions. You can define alert cotext.
 | ------------- | ----------------------------------------------------------------------- |
 | **`options`** | <code><a href="#geolocationpermission">GeolocationPermission</a></code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ state: any; }&gt;</code>
 
 --------------------
 
@@ -52,17 +44,15 @@ Request and check geolocation permissions. You can define alert cotext.
 ### startLocationUpdates(...)
 
 ```typescript
-startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: GeolocationUpdatesCallback | undefined) => any
+startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: GeolocationUpdatesCallback | undefined) => Promise<void>
 ```
 
 Start update location
 
-| Param          | Type                                                                  |
-| -------------- | --------------------------------------------------------------------- |
-| **`options`**  | <code><a href="#geololocationupdates">GeololocationUpdates</a></code> |
-| **`callback`** | <code>GeolocationUpdatesCallback</code>                               |
-
-**Returns:** <code>any</code>
+| Param          | Type                                                                              |
+| -------------- | --------------------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#geololocationupdates">GeololocationUpdates</a></code>             |
+| **`callback`** | <code><a href="#geolocationupdatescallback">GeolocationUpdatesCallback</a></code> |
 
 --------------------
 
@@ -70,12 +60,10 @@ Start update location
 ### stopLocationUpdtes()
 
 ```typescript
-stopLocationUpdtes() => any
+stopLocationUpdtes() => Promise<void>
 ```
 
 Request and check geolocation permissions. You can define alert cotext.
-
-**Returns:** <code>any</code>
 
 --------------------
 
@@ -144,5 +132,20 @@ After location updates, upload data to server. `multipart-formdata`
 | ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- |
 | **`url`**  | <code>string</code>                                | Update url                                                                            | <code>null</code> |
 | **`body`** | <code>{ [name: string]: string \| number; }</code> | Update body. You can get latitude and longitude data as `@latitude` and `@longitude`. | <code>null</code> |
+
+
+### Type Aliases
+
+
+#### PermissionState
+
+<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
+
+
+#### GeolocationUpdatesCallback
+
+Each time Geolocation updates, It fires. It's only for `forground state`.
+
+<code>(data: { longitude: number; latitude: number; }): void</code>
 
 </docgen-api>
