@@ -1,6 +1,6 @@
 # @aldegad/capacitor-geolocation
 
-This is a capacitor plugin, let you receive geolocation updates either forground and background. Android and iOS platforms are suppoerted.
+This is a capacitor plugin, let you receive geolocation updates either forground and background. `Android` and `iOS` platforms are suppoerted.
 
 ## Install
 
