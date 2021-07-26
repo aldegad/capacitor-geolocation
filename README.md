@@ -11,9 +11,56 @@ npx cap sync
 
 ## API
 
-<docgen-index></docgen-index>
+<docgen-index>
+
+* [`requestPermission(...)`](#requestpermission)
+* [`startLocationUpdates(...)`](#startlocationupdates)
+* [`stopLocationUpdtes()`](#stoplocationupdtes)
+
+</docgen-index>
 
 <docgen-api>
-<!-- run docgen to generate docs from the source -->
-<!-- More info: https://github.com/ionic-team/capacitor-docgen -->
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### requestPermission(...)
+
+```typescript
+requestPermission(options?: GeolocationOptions.RequestPermission | undefined) => any
+```
+
+| Param         | Type                           |
+| ------------- | ------------------------------ |
+| **`options`** | <code>RequestPermission</code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### startLocationUpdates(...)
+
+```typescript
+startLocationUpdates(options?: GeolocationOptions.LocationUpdates | undefined, callback?: GeolocationOptions.LocationUpdatesCallback | undefined) => any
+```
+
+| Param          | Type                                 |
+| -------------- | ------------------------------------ |
+| **`options`**  | <code>LocationUpdates</code>         |
+| **`callback`** | <code>LocationUpdatesCallback</code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### stopLocationUpdtes()
+
+```typescript
+stopLocationUpdtes() => any
+```
+
+**Returns:** <code>any</code>
+
+--------------------
+
 </docgen-api>

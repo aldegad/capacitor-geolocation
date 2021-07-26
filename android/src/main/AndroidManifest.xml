@@ -1,3 +1,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aldegad.capacitor.geolocation">
+    <application>
+        <!-- capacitor custom service, receiver & provider here -->
+        <service
+            android:name="com.aldegad.capacitor.geolocation.updates.LocationService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" />
+        <receiver
+            android:name="com.aldegad.capacitor.geolocation.updates.LocationReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="restartservice" />
+            </intent-filter>
+        </receiver>
+    </application>
+    <!-- capacitor custom permission here -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>
