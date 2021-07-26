@@ -104,10 +104,10 @@ Geolocation alert options.
 
 Geolocation updates options.
 
-| Prop             | Type                                                                    | Description                                                                  | Since |
-| ---------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ----- |
-| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options.                                      | 0.0.1 |
-| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server. It uses `multipart-formdata`. | 0.0.1 |
+| Prop             | Type                                                                    | Description                                                                  | Default                                      | Since |
+| ---------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------- | ----- |
+| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options.                                      | <code>null Use background is default.</code> | 0.0.1 |
+| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server. It uses `multipart-formdata`. | <code>null Noting to do is default.</code>   | 0.0.1 |
 
 
 #### GeolocationBackground
