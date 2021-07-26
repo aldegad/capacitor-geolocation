@@ -96,8 +96,23 @@ Geolocation alert options.
 
 Geolocation updates options.
 
-| Prop          | Type                                     | Description                                                               |
-| ------------- | ---------------------------------------- | ------------------------------------------------------------------------- |
-| **`connect`** | <code>{ url: string; body: any; }</code> | After location updates, upload data to server.(multipart-formdata format) |
+| Prop               | Type                                                                        | Description                                                                                                                        |
+| ------------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is android forground notification module. If you need to run background Geolocation on Android, you must define notification. |
+| **`connect`**      | <code>{ url: string; body: any; }</code>                                    | After location updates, upload data to server(multipart-formdata format).                                                          |
+
+
+#### GeolocationNotification
+
+This is android forground notification module. If you need to run background Geolocation on Android, you must define notification.
+
+| Prop              | Type                 | Description                               | Default           |
+| ----------------- | -------------------- | ----------------------------------------- | ----------------- |
+| **`enable`**      | <code>boolean</code> | Toggle use background Geolocation or not. | <code>true</code> |
+| **`channelID`**   | <code>string</code>  | {Android} support                         | <code>true</code> |
+| **`channelName`** | <code>string</code>  |                                           |                   |
+| **`header`**      | <code>string</code>  |                                           |                   |
+| **`message`**     | <code>string</code>  |                                           |                   |
+| **`icon`**        | <code>string</code>  |                                           |                   |
 
 </docgen-api>

@@ -75,16 +75,16 @@ public class LocationService extends Service {
         String CHANNEL_ID = "LOCATION_SERVICE_CHANNEL";
 
         NotificationManager notificationManager = this.getSystemService(NotificationManager.class);
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Location tracker", NotificationManager.IMPORTANCE_LOW);
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Geolocation tracking notification", NotificationManager.IMPORTANCE_LOW);
         notificationManager.createNotificationChannel(channel);
 
         Notification notification =
             new Notification.Builder(this, CHANNEL_ID)
-                .setContentTitle("근로자 안전 확인")
-                .setContentText("안전한 근로환경을 위해 검사 중 입니다. 안전한 하루 되세요.")
+                .setContentTitle("Geolocation tracker")
+                .setContentText("Geolocation tracking now.")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent)
-                .setTicker("Location Ticker")
+                //.setTicker("Location Ticker") // 이게 머지?? 없어도 되긴되는데, 먼지 몰겠넹...
                 .build();
 
         startForeground(1, notification);
