@@ -51,8 +51,7 @@ export interface GeolocationBackground {
    */
   enable: boolean,
   /**
-   * document.write("<b>Android</b>");
-   * This is forground notification module. If you need to run background Geolocation on Android, you must define notification.
+   * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
    */
   notification: GeolocationNotification
 }
