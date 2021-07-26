@@ -85,7 +85,6 @@ export interface GeolocationBackground {
 }
 /**
  * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
- * @interface GeolocationNotification `Android`
  * @since 0.0.1
  */
 export interface GeolocationNotification {
@@ -109,11 +108,13 @@ export interface GeolocationNotification {
   header?: string,
   /**
    * `Android` notification message
+   * @since 0.0.1
    * @default "Geolocation tracking now."
    */
   message?: string,
   /**
    * `Android` notification icon. Icon's path should be in `android/app/res` folder.
+   * @since 0.0.1
    * @default "minmap/ic_launcher"
    */
   icon?: string
@@ -125,21 +126,25 @@ export interface GeolocationConnect {
   /**
    * Update url
    * @default null
+   * @since 0.0.1
    */
   url: string,
   /**
    * Update body. You can get latitude and longitude data as `@latitude` and `@longitude`.
    * @default null
+   * @since 0.0.1
    */
   body?: {[name:string]:string | number}
 }
-/**
- * Each time Geolocation updates, It fires. It's only for `forground state`.
- */
-export type GeolocationUpdatesCallback = (data: {
+export interface GeolocationUpdatesCallbackEvent {
   longitude: number,
   latitude: number
-}) => void
+}
+/**
+ * Each time Geolocation updates, It fires. It's only for `forground state`.
+ * @since 0.0.1
+ */
+export type GeolocationUpdatesCallback = (data: GeolocationUpdatesCallbackEvent) => void
 /**
  * Gecolocation permission State
  */

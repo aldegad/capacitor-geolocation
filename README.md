@@ -127,18 +127,26 @@ This is `Android` forground notification module. If you need to run background G
 | **`channelID`**   | <code>string</code> | `Android` notification channel id                                               | <code>"LOCATION_SERVICE_CHANNEL"</code>          | 0.0.1 |
 | **`channelName`** | <code>string</code> | `Android` notification cannel name                                              | <code>"Geolocation tracking notification"</code> | 0.0.1 |
 | **`header`**      | <code>string</code> | `Android` notification header                                                   | <code>"Geolocation tracker"</code>               | 0.0.1 |
-| **`message`**     | <code>string</code> | `Android` notification message                                                  | <code>"Geolocation tracking now."</code>         |       |
-| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. | <code>"minmap/ic_launcher"</code>                |       |
+| **`message`**     | <code>string</code> | `Android` notification message                                                  | <code>"Geolocation tracking now."</code>         | 0.0.1 |
+| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. | <code>"minmap/ic_launcher"</code>                | 0.0.1 |
 
 
 #### GeolocationConnect
 
 After location updates, upload data to server. `multipart-formdata`
 
-| Prop       | Type                                               | Description                                                                           | Default           |
-| ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- |
-| **`url`**  | <code>string</code>                                | Update url                                                                            | <code>null</code> |
-| **`body`** | <code>{ [name: string]: string \| number; }</code> | Update body. You can get latitude and longitude data as `@latitude` and `@longitude`. | <code>null</code> |
+| Prop       | Type                                               | Description                                                                           | Default           | Since |
+| ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- | ----- |
+| **`url`**  | <code>string</code>                                | Update url                                                                            | <code>null</code> | 0.0.1 |
+| **`body`** | <code>{ [name: string]: string \| number; }</code> | Update body. You can get latitude and longitude data as `@latitude` and `@longitude`. | <code>null</code> | 0.0.1 |
+
+
+#### GeolocationUpdatesCallbackEvent
+
+| Prop            | Type                |
+| --------------- | ------------------- |
+| **`longitude`** | <code>number</code> |
+| **`latitude`**  | <code>number</code> |
 
 
 ### Type Aliases
@@ -148,7 +156,7 @@ After location updates, upload data to server. `multipart-formdata`
 
 Each time Geolocation updates, It fires. It's only for `forground state`.
 
-<code>(data: { longitude: number; latitude: number; }): void</code>
+<code>(data: <a href="#geolocationupdatescallbackevent">GeolocationUpdatesCallbackEvent</a>): void</code>
 
 
 ### Enums
