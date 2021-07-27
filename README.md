@@ -76,7 +76,7 @@ async startLocationUpdates() {
         icon: 'drawable/default_dark'
     }
     const connect:GeolocationConnectOptions = {
-        url: 'http://3.35.5.135/KUNYOUNG/managementservice.asmx/Get_ServerLog',
+        url: 'https://devmonster.co.kr/api/test_log',
         body: {
             user_id: 'ef34f3f3',
             user_position: 'User position is @latitude and @longitude'
