@@ -11,9 +11,7 @@ You can't use this now. It is under development.
 npm install @aldegad/capacitor-geolocation
 npx cap sync
 ```
-### Examples
-
-Quick Example:
+### Quick Example
 
 ```ts
 
@@ -26,67 +24,6 @@ async startLocationUpdates() {
 
     Geolocation.startLocationUpdates(null, ({latitude, longitude}) => {
         console.log("location updates", `${latitude}/${longitude}`);
-    });
-}
-stopLocationUpdates() {
-    Geolocation.startLocationUpdates();
-}
-```
-
-Full Example:
-
-```ts
-
-import { Geolocation, GeolocationAlert, GeolocationConnect } from '@aldegad/capacitor-geolocation';
-
-async startLocationUpdates() {
-    const permissionOptions:GeolocationPermissionOptions = {
-        promptAlert: null,
-        deniedAlert: null
-    }
-    const promptAlert:GeolocationAlertOptions = {
-        header: '위치권한 필요',
-        message: '이 앱은 원활한 사용을 위해 위치권한을 필요로 합니다.\n위치 권한을 허용해주세요.',
-        cancelText: '거부',
-        okText: '확인'
-    }
-    const deniedAlert:GeolocationAlertOptions = {
-        header: '위치권한 거부됨',
-        message: '이 앱은 원활한 사용을 위해 위치권한을 필요로 합니다.\n[권한 -> 위치]로 이동하여 권한을 허용해주세요.',
-        cancelText: '거부',
-        okText: '이동'
-    }
-    permissionOptions.promptAlert = promptAlert;
-    permissionOptions.deniedAlert = deniedAlert;
-    const { state } = await Geolocation.requestPermission(permissionOptions);
-    
-    if(state !== 'granted') return;
-    
-    const updatesOptions:GeololocationUpdatesOptions = {
-        background: null,
-        notification: null,
-        connect: null
-    }
-    const background:boolean = true;
-    const notification:GeolocationNotificationOptions = {
-        channelID: 'LOCATION_SERVICE_CHANNEL',
-        channelName: '근로자 안전 위치 관리',
-        header: '근로자 안전 관리 시스템',
-        message: '안전한 근무를 위해 위치관리 시스템을 작동 중 입니다.',
-        icon: 'drawable/default_dark'
-    }
-    const connect:GeolocationConnectOptions = {
-        url: 'https://devmonster.co.kr/api/test_log',
-        body: {
-            user_id: 'ef34f3f3',
-            user_position: 'User position is @latitude and @longitude'
-        }
-    }
-    updatesOptions.background = background;
-    updatesOptions.notification = notification;
-    updatesOptions.connect = connect;
-    Geolocation.startLocationUpdates(updatesOptions, ({latitude, longitude}) => {
-        console.log();
     });
 }
 stopLocationUpdates() {
@@ -248,3 +185,64 @@ Each time Geolocation updates, It fires. It's only for `forground state`.
 | **`prompt`**  | <code>"prompt"</code>  | User has not yet set permissions. |
 
 </docgen-api>
+
+### Full Example
+
+```ts
+
+import { Geolocation, GeolocationAlert, GeolocationConnect } from '@aldegad/capacitor-geolocation';
+
+async startLocationUpdates() {
+    const permissionOptions:GeolocationPermissionOptions = {
+        promptAlert: null,
+        deniedAlert: null
+    }
+    const promptAlert:GeolocationAlertOptions = {
+        header: '위치권한 필요',
+        message: '이 앱은 원활한 사용을 위해 위치권한을 필요로 합니다.\n위치 권한을 허용해주세요.',
+        cancelText: '거부',
+        okText: '확인'
+    }
+    const deniedAlert:GeolocationAlertOptions = {
+        header: '위치권한 거부됨',
+        message: '이 앱은 원활한 사용을 위해 위치권한을 필요로 합니다.\n[권한 -> 위치]로 이동하여 권한을 허용해주세요.',
+        cancelText: '거부',
+        okText: '이동'
+    }
+    permissionOptions.promptAlert = promptAlert;
+    permissionOptions.deniedAlert = deniedAlert;
+    const { state } = await Geolocation.requestPermission(permissionOptions);
+    
+    if(state !== 'granted') return;
+    
+    const updatesOptions:GeololocationUpdatesOptions = {
+        background: null,
+        notification: null,
+        connect: null
+    }
+    const background:boolean = true;
+    const notification:GeolocationNotificationOptions = {
+        channelID: 'LOCATION_SERVICE_CHANNEL',
+        channelName: '근로자 안전 위치 관리',
+        header: '근로자 안전 관리 시스템',
+        message: '안전한 근무를 위해 위치관리 시스템을 작동 중 입니다.',
+        icon: 'drawable/default_dark'
+    }
+    const connect:GeolocationConnectOptions = {
+        url: 'https://devmonster.co.kr/api/test_log',
+        body: {
+            user_id: 'ef34f3f3',
+            user_position: 'User position is @latitude and @longitude'
+        }
+    }
+    updatesOptions.background = background;
+    updatesOptions.notification = notification;
+    updatesOptions.connect = connect;
+    Geolocation.startLocationUpdates(updatesOptions, ({latitude, longitude}) => {
+        console.log();
+    });
+}
+stopLocationUpdates() {
+    Geolocation.startLocationUpdates();
+}
+```
