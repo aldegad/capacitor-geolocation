@@ -3,12 +3,12 @@
     <application>
         <!-- capacitor custom service, receiver & provider here -->
         <service
-            android:name="com.aldegad.capacitor.geolocation.updates.LocationService"
+            android:name="com.aldegad.capacitor.geolocation.updates.GeolocationUpdates"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="location" />
         <receiver
-            android:name="com.aldegad.capacitor.geolocation.updates.LocationReceiver"
+            android:name="com.aldegad.capacitor.geolocation.updates.GeolocationReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

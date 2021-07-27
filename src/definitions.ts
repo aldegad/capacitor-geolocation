@@ -3,12 +3,12 @@ export interface GeolocationPlugin {
    * Request and check geolocation permissions. You can define alert cotext.
    * @since 0.0.1
    */
-  requestPermission(options?: GeolocationPermission): Promise<{ state: GeolocationPermissionState }>;
+  requestPermission(options?: GeolocationPermissionOptions): Promise<{ state: GeolocationPermissionState }>;
   /**
    * Start location updates.
    * @since 0.0.1
    */
-  startLocationUpdates(options?: GeololocationUpdates, callback?: GeolocationUpdatesCallback):Promise<void>;
+  startLocationUpdates(options?: GeololocationUpdatesOptions, callback?: GeolocationUpdatesCallback):Promise<void>;
   /**
    * Stop location updates.
    * @since 0.0.1
@@ -18,23 +18,23 @@ export interface GeolocationPlugin {
 /**
  * Geolocation permission options.
  */
-export interface GeolocationPermission {
+export interface GeolocationPermissionOptions {
   /**
    * If user ignore geolocation permission, notice why this application needs geolocation permissions.
    * @since 0.0.1
    */
-  promptAlert?: GeolocationAlert,
+  promptAlert?: GeolocationAlertOptions,
   /**
    * If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions.
    * @since 0.0.1
    */
-  deniedAlert?: GeolocationAlert
+  deniedAlert?: GeolocationAlertOptions
 }
 /**
  * Geolocation alert options.
  * @since 0.0.1
  */
-export interface GeolocationAlert {
+export interface GeolocationAlertOptions {
   /**
    * Alert header
    * @since 0.0.1
@@ -59,37 +59,30 @@ export interface GeolocationAlert {
 /**
  * Geolocation updates options.
  */
-export interface GeololocationUpdates {
+export interface GeololocationUpdatesOptions {
   /**
-   * Geolocation Background setting options.
-   * @default Use background is default.
+   * Toggle background geolocation enable or not.
+   * @default true
    * @since 0.0.1
    */
-  background?: GeolocationBackground
+  background?: boolean
+  /**
+   * This is `Android` forground notification option. If you need to run background geolocation on Android, you must define notification.
+   * @since 0.0.1
+   */
+  notification?: GeolocationNotificationOptions
   /**
    * After location updates, upload data to server. It uses `multipart-formdata`.
    * @default Nothing to do is default.
    * @since 0.0.1
    */
-  connect?: GeolocationConnect
-}
-export interface GeolocationBackground {
-  /**
-   * Toggle use background Geolocation or not.
-   * @default true
-   */
-  enable: boolean,
-  /**
-   * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
-   * @since 0.0.1
-   */
-  notification: GeolocationNotification
+  connect?: GeolocationConnectOptions
 }
 /**
  * This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
  * @since 0.0.1
  */
-export interface GeolocationNotification {
+export interface GeolocationNotificationOptions {
   /**
    * `Android` notification channel id
    * @since 0.0.1
@@ -115,7 +108,7 @@ export interface GeolocationNotification {
    */
   message?: string,
   /**
-   * `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image format like `.png`, `.jpeg` etc.
+   * `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image mine-type like `.png`, `.jpeg` etc.
    * @since 0.0.1
    * @default "minmap/ic_launcher"
    */
@@ -124,7 +117,7 @@ export interface GeolocationNotification {
 /**
  * After location updates, upload data to server. `multipart-formdata`
  */
-export interface GeolocationConnect {
+export interface GeolocationConnectOptions {
   /**
    * Update url
    * @default null

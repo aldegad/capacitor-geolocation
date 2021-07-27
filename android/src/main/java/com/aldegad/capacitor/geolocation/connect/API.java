@@ -12,7 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API {
-    private static String TAG = "Dev.Connect.API";
+    private static String TAG = "aldegad.geolocation.connect.api";
     public static String url = "http://3.35.5.135/KUNYOUNG/managementservice.asmx/"; // default URL
     private static APIInterface apiInterface = null;
     private static void init() {

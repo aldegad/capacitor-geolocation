@@ -12,17 +12,17 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
-import com.aldegad.capacitor.geolocation.alert.AlertPlugin;
+import com.aldegad.capacitor.geolocation.alert.GeolocationAlert;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PermissionState;
 
-public class LocationPermission {
+public class GeolocationPermission {
     private static String TAG = "aldegad.geolocation.permission.LocationPermission";
 
     private static AppCompatActivity activity = null;
     private static boolean isOpenSetting = false;
-    private static LocationPermissionOptions locationPermissionOptions = null;
-    private static LocationPermissionCallback locationPermissionCallback = null;
+    private static GeolocationPermissionOptions geolocationPermissionOptions = null;
+    private static GeolocationPermissionCallback geolocationPermissionCallback = null;
     private static ActivityResultLauncher<String> locationPermissionLauncher = null;
 
     public static void add(AppCompatActivity _activity) {
@@ -32,21 +32,21 @@ public class LocationPermission {
                 Log.d(TAG, "locationPermissionLauncher: " + isGranted);
                 Boolean PermissionDenied = ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_FINE_LOCATION);
                 if (isGranted) {
-                    requestPermission(locationPermissionOptions, locationPermissionCallback);
+                    requestPermission(geolocationPermissionOptions, geolocationPermissionCallback);
                 } else if (!PermissionDenied) {
-                    AlertPlugin.present(
-                        locationPermissionOptions.promptAlert.header,
-                        locationPermissionOptions.promptAlert.message,
-                        locationPermissionOptions.promptAlert.okText,
-                        locationPermissionOptions.promptAlert.cancelText,
-                        () -> requestPermission(locationPermissionOptions, locationPermissionCallback),
+                    GeolocationAlert.present(
+                        geolocationPermissionOptions.promptAlert.header,
+                        geolocationPermissionOptions.promptAlert.message,
+                        geolocationPermissionOptions.promptAlert.okText,
+                        geolocationPermissionOptions.promptAlert.cancelText,
+                        () -> requestPermission(geolocationPermissionOptions, geolocationPermissionCallback),
                         () -> returnRequestPermission(PermissionState.PROMPT));
                 } else {
-                    AlertPlugin.present(
-                        locationPermissionOptions.deniedAlert.header,
-                        locationPermissionOptions.deniedAlert.message,
-                        locationPermissionOptions.deniedAlert.okText,
-                        locationPermissionOptions.deniedAlert.cancelText,
+                    GeolocationAlert.present(
+                        geolocationPermissionOptions.deniedAlert.header,
+                        geolocationPermissionOptions.deniedAlert.message,
+                        geolocationPermissionOptions.deniedAlert.okText,
+                        geolocationPermissionOptions.deniedAlert.cancelText,
                         () -> openSetting(),
                         () -> returnRequestPermission(PermissionState.DENIED));
                 }
@@ -57,7 +57,7 @@ public class LocationPermission {
     public static void onResume() {
         if (isOpenSetting) {
             isOpenSetting = false;
-            requestPermission(locationPermissionOptions, locationPermissionCallback);
+            requestPermission(geolocationPermissionOptions, geolocationPermissionCallback);
         }
     }
 
@@ -72,13 +72,13 @@ public class LocationPermission {
     public static void returnRequestPermission(PermissionState state) {
         JSObject res = new JSObject();
         res.put("state", state);
-        locationPermissionCallback.run(res);
+        geolocationPermissionCallback.run(res);
     }
 
-    public static void requestPermission(LocationPermissionOptions _options, LocationPermissionCallback _locationPermissionCallback) {
+    public static void requestPermission(GeolocationPermissionOptions _options, GeolocationPermissionCallback _geolocationPermissionCallback) {
 
-        locationPermissionOptions = _options;
-        locationPermissionCallback = _locationPermissionCallback;
+        geolocationPermissionOptions = _options;
+        geolocationPermissionCallback = _geolocationPermissionCallback;
 
         Boolean hasPermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
         Boolean PermissionDenied = ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_FINE_LOCATION);
@@ -91,11 +91,11 @@ public class LocationPermission {
                 locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
             } else {
                 // 포그라운드 위치 권한이 거부된 상태 - 권한 설명 및 권한 팝업
-                AlertPlugin.present(
-                    locationPermissionOptions.deniedAlert.header,
-                    locationPermissionOptions.deniedAlert.message,
-                    locationPermissionOptions.deniedAlert.okText,
-                    locationPermissionOptions.deniedAlert.cancelText,
+                GeolocationAlert.present(
+                    geolocationPermissionOptions.deniedAlert.header,
+                    geolocationPermissionOptions.deniedAlert.message,
+                    geolocationPermissionOptions.deniedAlert.okText,
+                    geolocationPermissionOptions.deniedAlert.cancelText,
                     () -> openSetting(),
                     () -> returnRequestPermission(PermissionState.DENIED));
             }

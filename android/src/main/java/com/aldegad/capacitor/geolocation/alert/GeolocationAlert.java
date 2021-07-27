@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.aldegad.capacitor.geolocation.R;
 
-public class AlertPlugin {
+public class GeolocationAlert {
     private static AppCompatActivity activity = null;
     public static void add(AppCompatActivity _activity) {
         activity = _activity;
     }
-    public static void present(String title, String message, String okText, String CancelText, AlertButtonCallback okCallback, AlertButtonCallback rejectCallback) {
+    public static void present(String title, String message, String okText, String CancelText, GeolocationAlertButtonCallback okCallback, GeolocationAlertButtonCallback rejectCallback) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.AppTheme_AlertDialog);
         builder
             .setTitle(title)

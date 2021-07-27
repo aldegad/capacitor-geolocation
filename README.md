@@ -51,14 +51,14 @@ stopLocationUpdates() {
 ### requestPermission(...)
 
 ```typescript
-requestPermission(options?: GeolocationPermission | undefined) => Promise<{ state: GeolocationPermissionState; }>
+requestPermission(options?: GeolocationPermissionOptions | undefined) => Promise<{ state: GeolocationPermissionState; }>
 ```
 
 Request and check geolocation permissions. You can define alert cotext.
 
-| Param         | Type                                                                    |
-| ------------- | ----------------------------------------------------------------------- |
-| **`options`** | <code><a href="#geolocationpermission">GeolocationPermission</a></code> |
+| Param         | Type                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#geolocationpermissionoptions">GeolocationPermissionOptions</a></code> |
 
 **Returns:** <code>Promise&lt;{ state: <a href="#geolocationpermissionstate">GeolocationPermissionState</a>; }&gt;</code>
 
@@ -70,15 +70,15 @@ Request and check geolocation permissions. You can define alert cotext.
 ### startLocationUpdates(...)
 
 ```typescript
-startLocationUpdates(options?: GeololocationUpdates | undefined, callback?: GeolocationUpdatesCallback | undefined) => Promise<void>
+startLocationUpdates(options?: GeololocationUpdatesOptions | undefined, callback?: GeolocationUpdatesCallback | undefined) => Promise<void>
 ```
 
 Start location updates.
 
-| Param          | Type                                                                              |
-| -------------- | --------------------------------------------------------------------------------- |
-| **`options`**  | <code><a href="#geololocationupdates">GeololocationUpdates</a></code>             |
-| **`callback`** | <code><a href="#geolocationupdatescallback">GeolocationUpdatesCallback</a></code> |
+| Param          | Type                                                                                |
+| -------------- | ----------------------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#geololocationupdatesoptions">GeololocationUpdatesOptions</a></code> |
+| **`callback`** | <code><a href="#geolocationupdatescallback">GeolocationUpdatesCallback</a></code>   |
 
 **Since:** 0.0.1
 
@@ -101,17 +101,17 @@ Stop location updates.
 ### Interfaces
 
 
-#### GeolocationPermission
+#### GeolocationPermissionOptions
 
 Geolocation permission options.
 
-| Prop              | Type                                                          | Description                                                                                                                          | Since |
-| ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`promptAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    | 0.0.1 |
-| **`deniedAlert`** | <code><a href="#geolocationalert">GeolocationAlert</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. | 0.0.1 |
+| Prop              | Type                                                                        | Description                                                                                                                          | Since |
+| ----------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`promptAlert`** | <code><a href="#geolocationalertoptions">GeolocationAlertOptions</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    | 0.0.1 |
+| **`deniedAlert`** | <code><a href="#geolocationalertoptions">GeolocationAlertOptions</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. | 0.0.1 |
 
 
-#### GeolocationAlert
+#### GeolocationAlertOptions
 
 Geolocation alert options.
 
@@ -123,38 +123,31 @@ Geolocation alert options.
 | **`cancelText`** | <code>string</code> | Alert cancel text | 0.0.1 |
 
 
-#### GeololocationUpdates
+#### GeololocationUpdatesOptions
 
 Geolocation updates options.
 
-| Prop             | Type                                                                    | Description                                                                  | Default                                 | Since |
-| ---------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------- | ----- |
-| **`background`** | <code><a href="#geolocationbackground">GeolocationBackground</a></code> | Geolocation Background setting options.                                      | <code>Use background is default.</code> | 0.0.1 |
-| **`connect`**    | <code><a href="#geolocationconnect">GeolocationConnect</a></code>       | After location updates, upload data to server. It uses `multipart-formdata`. | <code>Nothing to do is default.</code>  | 0.0.1 |
+| Prop               | Type                                                                                      | Description                                                                                                                          | Default                                | Since |
+| ------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ----- |
+| **`background`**   | <code>boolean</code>                                                                      | Toggle background geolocation enable or not.                                                                                         | <code>true</code>                      | 0.0.1 |
+| **`notification`** | <code><a href="#geolocationnotificationoptions">GeolocationNotificationOptions</a></code> | This is `Android` forground notification option. If you need to run background geolocation on Android, you must define notification. |                                        | 0.0.1 |
+| **`connect`**      | <code><a href="#geolocationconnectoptions">GeolocationConnectOptions</a></code>           | After location updates, upload data to server. It uses `multipart-formdata`.                                                         | <code>Nothing to do is default.</code> | 0.0.1 |
 
 
-#### GeolocationBackground
-
-| Prop               | Type                                                                        | Description                                                                                                                          | Default           | Since |
-| ------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | ----- |
-| **`enable`**       | <code>boolean</code>                                                        | Toggle use background Geolocation or not.                                                                                            | <code>true</code> |       |
-| **`notification`** | <code><a href="#geolocationnotification">GeolocationNotification</a></code> | This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification. |                   | 0.0.1 |
-
-
-#### GeolocationNotification
+#### GeolocationNotificationOptions
 
 This is `Android` forground notification module. If you need to run background Geolocation on Android, you must define notification.
 
-| Prop              | Type                | Description                                                                                                                       | Default                                          | Since |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
-| **`channelID`**   | <code>string</code> | `Android` notification channel id                                                                                                 | <code>"LOCATION_SERVICE_CHANNEL"</code>          | 0.0.1 |
-| **`channelName`** | <code>string</code> | `Android` notification cannel name                                                                                                | <code>"Geolocation tracking notification"</code> | 0.0.1 |
-| **`header`**      | <code>string</code> | `Android` notification header                                                                                                     | <code>"Geolocation tracker"</code>               | 0.0.1 |
-| **`message`**     | <code>string</code> | `Android` notification message                                                                                                    | <code>"Geolocation tracking now."</code>         | 0.0.1 |
-| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image format like `.png`, `.jpeg` etc. | <code>"minmap/ic_launcher"</code>                | 0.0.1 |
+| Prop              | Type                | Description                                                                                                                          | Default                                          | Since |
+| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ----- |
+| **`channelID`**   | <code>string</code> | `Android` notification channel id                                                                                                    | <code>"LOCATION_SERVICE_CHANNEL"</code>          | 0.0.1 |
+| **`channelName`** | <code>string</code> | `Android` notification cannel name                                                                                                   | <code>"Geolocation tracking notification"</code> | 0.0.1 |
+| **`header`**      | <code>string</code> | `Android` notification header                                                                                                        | <code>"Geolocation tracker"</code>               | 0.0.1 |
+| **`message`**     | <code>string</code> | `Android` notification message                                                                                                       | <code>"Geolocation tracking now."</code>         | 0.0.1 |
+| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image mine-type like `.png`, `.jpeg` etc. | <code>"minmap/ic_launcher"</code>                | 0.0.1 |
 
 
-#### GeolocationConnect
+#### GeolocationConnectOptions
 
 After location updates, upload data to server. `multipart-formdata`
 

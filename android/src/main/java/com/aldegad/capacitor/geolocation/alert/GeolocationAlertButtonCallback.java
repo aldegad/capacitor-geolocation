@@ -1,5 +1,5 @@
 package com.aldegad.capacitor.geolocation.alert;
 
-public interface AlertButtonCallback {
+public interface GeolocationAlertButtonCallback {
     void run();
 }
