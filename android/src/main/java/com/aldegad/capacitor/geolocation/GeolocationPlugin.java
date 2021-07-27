@@ -49,7 +49,7 @@ public class GeolocationPlugin extends Plugin {
     }
     @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     public void stopLocationUpdates(PluginCall call) {
-        GeolocationUpdates.stopUpdates(getContext());
+        GeolocationUpdates.stopUpdates(getActivity());
         call.resolve();
     }
 

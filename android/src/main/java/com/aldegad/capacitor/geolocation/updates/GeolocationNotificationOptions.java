@@ -10,10 +10,12 @@ public class GeolocationNotificationOptions {
     public String icon = "minmap/ic_launcher";
     public GeolocationNotificationOptions(){}
     public GeolocationNotificationOptions(JSObject options) {
-        this.channelID = options.getString("channelID") != null ? options.getString("channelID") : this.channelID;
-        this.channelName = options.getString("channelName") != null ? options.getString("channelName") : this.channelName;
-        this.header = options.getString("header") != null ? options.getString("header") : this.header;
-        this.message = options.getString("message") != null ? options.getString("message") : this.message;
-        this.icon = options.getString("icon") != null ? options.getString("icon") : this.icon;
+        if(options != null) {
+            this.channelID = options.getString("channelID") != null ? options.getString("channelID") : this.channelID;
+            this.channelName = options.getString("channelName") != null ? options.getString("channelName") : this.channelName;
+            this.header = options.getString("header") != null ? options.getString("header") : this.header;
+            this.message = options.getString("message") != null ? options.getString("message") : this.message;
+            this.icon = options.getString("icon") != null ? options.getString("icon") : this.icon;
+        }
     }
 }

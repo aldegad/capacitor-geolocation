@@ -8,5 +8,5 @@ export class GeolocationWeb extends WebPlugin implements GeolocationPlugin {
     return { state };
   }
   async startLocationUpdates() {}
-  async stopLocationUpdtes() {}
+  async stopLocationUpdates() {}
 }

@@ -1,6 +1,7 @@
 package com.aldegad.capacitor.geolocation.updates;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
@@ -45,8 +46,8 @@ public class GeolocationUpdates extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d(TAG, "onCreate");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Log.d(TAG, "onCreate");
             Notification notification = GeolocationNotification.build(this, geolocationUpdatesOptions.notification);
             startForeground(1, notification);
         }
@@ -56,6 +57,10 @@ public class GeolocationUpdates extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.d(TAG, "onDestroy");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            stopForeground(true);
+        }
         _stopUpdates();
     }
     public static void startBackgroundUpdates(Context context) {
@@ -141,7 +146,7 @@ public class GeolocationUpdates extends Service {
                 locationCallback,
                 Looper.getMainLooper());
     }
-    public void _stopUpdates() {
+    private void _stopUpdates() {
         fusedLocationClient.removeLocationUpdates(locationCallback);
         fusedLocationClient = null;
     }

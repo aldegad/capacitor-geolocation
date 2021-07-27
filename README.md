@@ -38,7 +38,7 @@ stopLocationUpdates() {
 
 * [`requestPermission(...)`](#requestpermission)
 * [`startLocationUpdates(...)`](#startlocationupdates)
-* [`stopLocationUpdtes()`](#stoplocationupdtes)
+* [`stopLocationUpdates()`](#stoplocationupdates)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)
 * [Enums](#enums)
@@ -85,10 +85,10 @@ Start location updates.
 --------------------
 
 
-### stopLocationUpdtes()
+### stopLocationUpdates()
 
 ```typescript
-stopLocationUpdtes() => Promise<void>
+stopLocationUpdates() => Promise<void>
 ```
 
 Stop location updates.

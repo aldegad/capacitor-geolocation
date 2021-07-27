@@ -13,7 +13,7 @@ export interface GeolocationPlugin {
    * Stop location updates.
    * @since 0.0.1
    */
-  stopLocationUpdtes():Promise<void>;
+   stopLocationUpdates():Promise<void>;
 }
 /**
  * Geolocation permission options.

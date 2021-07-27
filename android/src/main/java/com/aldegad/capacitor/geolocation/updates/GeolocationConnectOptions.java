@@ -7,7 +7,9 @@ public class GeolocationConnectOptions {
     public JSObject body = null;
     public GeolocationConnectOptions() {}
     public GeolocationConnectOptions(JSObject options) {
-        this.url = options.getString("url") != null ? options.getString("url") : this.url;
-        this.body = options.getJSObject("body") != null ? options.getJSObject("body") : this.body;;
+        if(options != null) {
+            this.url = options.getString("url") != null ? options.getString("url") : this.url;
+            this.body = options.getJSObject("body") != null ? options.getJSObject("body") : this.body;;
+        }
     }
 }
