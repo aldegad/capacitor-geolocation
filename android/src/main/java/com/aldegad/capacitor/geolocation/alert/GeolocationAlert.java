@@ -1,18 +1,13 @@
 package com.aldegad.capacitor.geolocation.alert;
 
 import android.app.AlertDialog;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
 
 import com.aldegad.capacitor.geolocation.R;
 
 public class GeolocationAlert {
-    private static AppCompatActivity activity = null;
-    public static void add(AppCompatActivity _activity) {
-        activity = _activity;
-    }
-    public static void present(String title, String message, String okText, String CancelText, GeolocationAlertButtonCallback okCallback, GeolocationAlertButtonCallback rejectCallback) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.AppTheme_AlertDialog);
+    public static void present(Context context, String title, String message, String okText, String CancelText, GeolocationAlertButtonCallback okCallback, GeolocationAlertButtonCallback rejectCallback) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AppTheme_AlertDialog);
         builder
             .setTitle(title)
             .setMessage(message)

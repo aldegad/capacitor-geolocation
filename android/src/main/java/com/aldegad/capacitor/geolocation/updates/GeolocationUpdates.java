@@ -78,6 +78,8 @@ public class GeolocationUpdates extends Service {
         geolocationUpdatesOptions = options;
         geolocationUpdatesCallback = callback;
 
+        Log.d(TAG, "startForgroundUpdates: " + geolocationUpdatesOptions.notification.toString());
+
         Intent intent = new Intent(context, GeolocationUpdates.class);
         if (Build.VERSION.SDK_INT >= 26) {
             context.startForegroundService(intent);
@@ -119,16 +121,17 @@ public class GeolocationUpdates extends Service {
                     Double longitude = location.getLongitude();
                     Double latitude = location.getLatitude();
 
-                    GeolocationConnect.uploadUpdates(longitude, latitude);
+                    GeolocationConnect.uploadUpdates(options.connect, longitude, latitude);
 
                     if(callback != null) {
+                        Log.d(TAG, "callback called");
                         JSObject res = new JSObject();
                         res.put("longitude", longitude);
                         res.put("latitude", latitude);
                         callback.run(res);
                     }
 
-                    // 주소 부분. 딱히 아직은 쓸일이 없는 듯함.
+                    // 주소 부분. 딱히 아직은 쓸일이 없는 듯함. 근데 보통 이런거 플러그인 확장할 때 꼭 쓰이더라고. 그니깐 냅둠.
                     /* try {
                         Geocoder geocoder = new Geocoder(packageContext, Locale.getDefault());
 

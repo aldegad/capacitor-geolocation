@@ -25,7 +25,7 @@ public class GeolocationPermission {
     private static GeolocationPermissionCallback geolocationPermissionCallback = null;
     private static ActivityResultLauncher<String> locationPermissionLauncher = null;
 
-    public static void add(AppCompatActivity _activity) {
+    public static void onCreate(AppCompatActivity _activity) {
         activity = _activity;
         locationPermissionLauncher = activity.registerForActivityResult(
             new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -35,6 +35,7 @@ public class GeolocationPermission {
                     requestPermission(geolocationPermissionOptions, geolocationPermissionCallback);
                 } else if (!PermissionDenied) {
                     GeolocationAlert.present(
+                        activity,
                         geolocationPermissionOptions.promptAlert.header,
                         geolocationPermissionOptions.promptAlert.message,
                         geolocationPermissionOptions.promptAlert.okText,
@@ -43,6 +44,7 @@ public class GeolocationPermission {
                         () -> returnRequestPermission(PermissionState.PROMPT));
                 } else {
                     GeolocationAlert.present(
+                        activity,
                         geolocationPermissionOptions.deniedAlert.header,
                         geolocationPermissionOptions.deniedAlert.message,
                         geolocationPermissionOptions.deniedAlert.okText,
@@ -92,6 +94,7 @@ public class GeolocationPermission {
             } else {
                 // 포그라운드 위치 권한이 거부된 상태 - 권한 설명 및 권한 팝업
                 GeolocationAlert.present(
+                    activity,
                     geolocationPermissionOptions.deniedAlert.header,
                     geolocationPermissionOptions.deniedAlert.message,
                     geolocationPermissionOptions.deniedAlert.okText,

@@ -23,25 +23,25 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 public class GeolocationPlugin extends Plugin {
     private static String TAG = "aldegad.gelolocation.GeolocationPlugin";
 
-    private Geolocation implementation = new Geolocation();
+    private Geolocation implementation = new Geolocation(); // 아직 용도를 잘 모르겠다. 실력이 부족한듯.
 
     @PluginMethod()
     public void requestPermission(PluginCall call) {
         GeolocationPermissionOptions options = new GeolocationPermissionOptions();
         options.promptAlert = new GeolocationAlertOptions(call.getObject("promptAlert", null));
         options.deniedAlert = new GeolocationAlertOptions(call.getObject("deniedAlert", null));
-        Log.d(TAG, options.promptAlert.header);
         GeolocationPermission.requestPermission(options, res -> {
             call.resolve(res);
         });
     }
     @PluginMethod(returnType = PluginMethod.RETURN_CALLBACK)
     public void startLocationUpdates(PluginCall call) {
+        call.setKeepAlive(true);
+
         GeolocationUpdatesOptions options = new GeolocationUpdatesOptions();
         options.background = call.getBoolean("background", true);
         options.notification = new GeolocationNotificationOptions(call.getObject("notification", null));
         options.connect = new GeolocationConnectOptions(call.getObject("connect", null));
-        call.setKeepAlive(true);
 
         GeolocationUpdates.startForgroundUpdates(getActivity(), options, res -> {
             call.resolve(res);
@@ -57,8 +57,7 @@ public class GeolocationPlugin extends Plugin {
     protected void handleOnStart() {
         super.handleOnStart();
         AppCompatActivity activity = getActivity();
-        GeolocationAlert.add(activity);
-        GeolocationPermission.add(activity);
+        GeolocationPermission.onCreate(activity);
     }
 
     @Override
