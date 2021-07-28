@@ -1,6 +1,6 @@
 {
   "name": "@aldegad/capacitor-geolocation",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This is a capacitor plugin, let you receive geolocation updates either forground and background. Android and iOS platforms are suppoerted.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
