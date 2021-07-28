@@ -28,8 +28,8 @@ public class GeolocationPlugin extends Plugin {
     @PluginMethod()
     public void requestPermission(PluginCall call) {
         GeolocationPermissionOptions options = new GeolocationPermissionOptions();
-        options.promptAlert = new GeolocationAlertOptions(call.getObject("promptAlert", null));
-        options.deniedAlert = new GeolocationAlertOptions(call.getObject("deniedAlert", null));
+        options.promptAlert = call.getObject("promptAlert", null) != null ? new GeolocationAlertOptions(call.getObject("promptAlert", null)) : options.promptAlert;
+        options.deniedAlert = call.getObject("deniedAlert", null) != null ? new GeolocationAlertOptions(call.getObject("deniedAlert", null)) : options.deniedAlert;
         GeolocationPermission.requestPermission(options, res -> {
             call.resolve(res);
         });
