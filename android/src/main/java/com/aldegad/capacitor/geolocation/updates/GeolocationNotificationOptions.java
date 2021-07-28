@@ -11,7 +11,7 @@ public class GeolocationNotificationOptions {
     public String channelName = "Geolocation tracking notification";
     public String header = "Geolocation tracker";
     public String message = "Geolocation tracking now.";
-    public String icon = "minmap/ic_launcher";
+    public String icon = "mipmap/ic_launcher";
     public GeolocationNotificationOptions(){}
     public GeolocationNotificationOptions(JSObject options) {
         Log.d(TAG, options != null ? options.toString() : "null");
