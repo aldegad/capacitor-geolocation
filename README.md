@@ -38,7 +38,6 @@ stopLocationUpdates() {
 * [`startLocationUpdates(...)`](#startlocationupdates)
 * [`stopLocationUpdates()`](#stoplocationupdates)
 * [Interfaces](#interfaces)
-* [Type Aliases](#type-aliases)
 * [Enums](#enums)
 
 </docgen-index>
@@ -76,7 +75,7 @@ Start location updates.
 | Param          | Type                                                                                |
 | -------------- | ----------------------------------------------------------------------------------- |
 | **`options`**  | <code><a href="#geololocationupdatesoptions">GeololocationUpdatesOptions</a></code> |
-| **`callback`** | <code><a href="#geolocationupdatescallback">GeolocationUpdatesCallback</a></code>   |
+| **`callback`** | <code>GeolocationUpdatesCallback</code>                                             |
 
 **Since:** 0.0.1
 
@@ -153,24 +152,6 @@ After location updates, upload data to server. `multipart-formdata`
 | ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------- | ----- |
 | **`url`**  | <code>string</code>                                | Update url                                                                            | <code>null</code> | 0.0.1 |
 | **`body`** | <code>{ [name: string]: string \| number; }</code> | Update body. You can get latitude and longitude data as `@latitude` and `@longitude`. | <code>null</code> | 0.0.1 |
-
-
-#### GeolocationUpdatesCallbackEvent
-
-| Prop            | Type                | Description             | Since |
-| --------------- | ------------------- | ----------------------- | ----- |
-| **`longitude`** | <code>number</code> | User location longitude | 0.0.1 |
-| **`latitude`**  | <code>number</code> | User location latitude  | 0.0.1 |
-
-
-### Type Aliases
-
-
-#### GeolocationUpdatesCallback
-
-Each time Geolocation updates, It fires. It's only for `forground state`.
-
-<code>(data: <a href="#geolocationupdatescallbackevent">GeolocationUpdatesCallbackEvent</a>): void</code>
 
 
 ### Enums
