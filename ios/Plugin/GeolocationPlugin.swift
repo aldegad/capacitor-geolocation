@@ -9,10 +9,29 @@ import Capacitor
 public class GeolocationPlugin: CAPPlugin {
     private let implementation = Geolocation()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
+    @objc func requestPermission(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            let value = call.getString("value") ?? ""
+            call.resolve([
+                "value": implementation.echo(value)
+            ])
+        }
+    }
+    @objc func startLocationUpdates(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            call.keepAlive = true;
+            let value = call.getString("value") ?? ""
+            call.resolve([
+                "value": implementation.echo(value)
+            ])
+        }
+    }
+    @objc func stopLocationUpdates(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            let value = call.getString("value") ?? ""
+            call.resolve([
+                "value": implementation.echo(value)
+            ])
+        }
     }
 }
