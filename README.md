@@ -142,7 +142,7 @@ This is `Android` forground notification module. If you need to run background G
 | **`channelName`** | <code>string</code> | `Android` notification cannel name                                                                                                   | <code>"Geolocation tracking notification"</code> | 0.0.1 |
 | **`header`**      | <code>string</code> | `Android` notification header                                                                                                        | <code>"Geolocation tracker"</code>               | 0.0.1 |
 | **`message`**     | <code>string</code> | `Android` notification message                                                                                                       | <code>"Geolocation tracking now."</code>         | 0.0.1 |
-| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image mine-type like `.png`, `.jpeg` etc. | <code>"minmap/ic_launcher"</code>                | 0.0.1 |
+| **`icon`**        | <code>string</code> | `Android` notification icon. Icon's path should be in `android/app/res` folder. Do not use image mine-type like `.png`, `.jpeg` etc. | <code>"mipmap/ic_launcher"</code>                | 0.0.1 |
 
 
 #### GeolocationConnectOptions
