@@ -9,6 +9,7 @@ npx cap sync
 ```
 ### Quick Example
 
+typescript
 ```ts
 
 import { Geolocation, GeolocationAlert, GeolocationConnect } from '@aldegad/capacitor-geolocation';
@@ -55,7 +56,7 @@ Request and check geolocation permissions. You can define alert cotext.
 
 **Returns:** <code>Promise&lt;{ state: <a href="#geolocationpermissionstate">GeolocationPermissionState</a>; }&gt;</code>
 
-**Since:** 0.0.1
+**Since:** 0.0.9
 
 --------------------
 
@@ -73,7 +74,7 @@ Start location updates.
 | **`options`**  | <code><a href="#geololocationupdatesoptions">GeololocationUpdatesOptions</a></code> |
 | **`callback`** | <code>GeolocationUpdatesCallback</code>                                             |
 
-**Since:** 0.0.1
+**Since:** 0.0.9
 
 --------------------
 
@@ -86,7 +87,7 @@ stopLocationUpdates() => Promise<void>
 
 Stop location updates.
 
-**Since:** 0.0.1
+**Since:** 0.0.9
 
 --------------------
 
