@@ -20,7 +20,7 @@ export interface GeolocationPlugin {
  */
 export interface GeolocationPermissionOptions {
   /**
-   * If user ignore geolocation permission, notice why this application needs geolocation permissions.
+   * `Android` only. If user ignore geolocation permission, notice why this application needs geolocation permissions.
    * @since 0.0.1
    */
   promptAlert?: GeolocationAlertOptions,

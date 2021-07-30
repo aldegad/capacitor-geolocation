@@ -104,7 +104,7 @@ Geolocation permission options.
 
 | Prop              | Type                                                                        | Description                                                                                                                          | Since |
 | ----------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **`promptAlert`** | <code><a href="#geolocationalertoptions">GeolocationAlertOptions</a></code> | If user ignore geolocation permission, notice why this application needs geolocation permissions.                                    | 0.0.1 |
+| **`promptAlert`** | <code><a href="#geolocationalertoptions">GeolocationAlertOptions</a></code> | `Android` only. If user ignore geolocation permission, notice why this application needs geolocation permissions.                    | 0.0.1 |
 | **`deniedAlert`** | <code><a href="#geolocationalertoptions">GeolocationAlertOptions</a></code> | If user denied geolocation permission, notice why this application needs geolocation permissions and tells how to reset permissions. | 0.0.1 |
 
 

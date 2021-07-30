@@ -39,7 +39,7 @@ public class GeolocationPlugin extends Plugin {
         call.setKeepAlive(true);
 
         GeolocationUpdatesOptions options = new GeolocationUpdatesOptions();
-        options.background = call.getBoolean("background", true);
+        options.background = call.getBoolean("background", options.background);
         options.notification = new GeolocationNotificationOptions(call.getObject("notification", null));
         options.connect = new GeolocationConnectOptions(call.getObject("connect", null));
 

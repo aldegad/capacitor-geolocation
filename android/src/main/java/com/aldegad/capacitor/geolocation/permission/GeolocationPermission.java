@@ -77,22 +77,22 @@ public class GeolocationPermission {
         geolocationPermissionCallback.run(res);
     }
 
-    public static void requestPermission(GeolocationPermissionOptions _options, GeolocationPermissionCallback _geolocationPermissionCallback) {
+    public static void requestPermission(GeolocationPermissionOptions _options, GeolocationPermissionCallback _callback) {
 
         geolocationPermissionOptions = _options;
-        geolocationPermissionCallback = _geolocationPermissionCallback;
+        geolocationPermissionCallback = _callback;
 
         Boolean hasPermission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
         Boolean PermissionDenied = ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_FINE_LOCATION);
 
-        // 포그라운드 권한 체크
+        // 권한 체크
         if (!hasPermission) {
             Log.d(TAG, "PermissionDenied: " + PermissionDenied);
             if (!PermissionDenied) {
-                // 포그라운드 위치 권한을 체크 안함 - 권한 팝업
+                // 위치 권한을 체크 안함 - 권한 팝업
                 locationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
             } else {
-                // 포그라운드 위치 권한이 거부된 상태 - 권한 설명 및 권한 팝업
+                // 위치 권한이 거부된 상태 - 권한 설명 및 권한 팝업
                 GeolocationAlert.present(
                     activity,
                     geolocationPermissionOptions.deniedAlert.header,
